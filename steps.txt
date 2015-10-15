@@ -9,50 +9,55 @@
 1008             (ch11 deployment) 5:50
 
 
-rails new first-app
-rails g scaffold topic title:string description:text
-                 -----
-                   +----> singular -> model: topic.rb
-                                      topics_controller.rb
-                                      table: topics
-rake db:migrate
-rails s
-connect to http://localhost:3000/topics
+ch1 Hello World!!
 
-add 'welcome' action in topics_controller.rb
+ch1.1.1 create a new project
 
-in routes.rb, add
-  get 'welcome', to: 'topics#welcome'
+  1. rails new first-app
+     cd first-app
+     git init
+     git add .
+     git commit -m"commit initial"
 
-create app/views/topics/welcome.html.erb
-  <h1>Hello World! (welcome.html)</h1>
+ch1.1.2 use scaffold
 
-in routes.rb, add
-  root 'topics#index'
+  1. rails g scaffold topic title:string description:text
+                      -----
+               singular -> topic.rb
+                           topics_controller.rb
+                    table: topics
+  2. rake db:migrate
+  3. rails s
+  4. connect to http://localhost:3000/topics with browser
 
-1 Hello World!!
+ch1.1.3 create welcome page
 
-1.1.1 create a new project
+  1. add 'welcome' action in topics_controller.rb
 
-1.1.2 use scaffold
+ch1.1.4 setup routes
 
-1.1.3 create welcome page
+  1. in routes.rb, add
+       get 'welcome', to: 'topics#welcome'
 
-1.1.4 setup routes
+ch1.1.5 create welcome.html.erb
 
-1.1.5 create welcome.html.erb
+  1. create app/views/topics/welcome.html.erb
+  2. content: <h1>Hello World! (welcome.html)</h1>
 
-1.1.6 set root route: http://localhost:3000/topics
+ch1.1.6 set root route: http://localhost:3000/topics
 
-1.2 use bootstrap
+  1. in routes.rb, add
+     root 'topics#index'
 
-1.2.1 install gem 'bootstrap-sass'
+ch1.2 use bootstrap
+
+ch1.2.1 install gem 'bootstrap-sass'
 
   1. in Gemfile, add
        gem 'bootstrap-sass'
   2. run 'bundle'
 
-1.2.2 install css packages in rails project
+ch1.2.2 install css packages in rails project
 
   1. cd app/assets/stylesheets
      mv application.css  application.css.scss
@@ -63,7 +68,7 @@ in routes.rb, add
 
   3. re-run 'rails s'
 
-1.2.3 install navbar and footbar
+ch1.2.3 install navbar and footbar
 
   1. mkdir app/views/common
 
@@ -74,18 +79,18 @@ in routes.rb, add
        //= require bootstrap/dropdown
        //= require bootstrap/alert
 
-1.2.4 modify app/views/layouts/application.html.erb
+ch1.2.4 modify app/views/layouts/application.html.erb
 
   1. in application.html.erb, add
        <%= render "common/navbar" %>
        <%= render "common/footer" %>
 
-1.2.5 use bootstrap table package
+ch1.2.5 use bootstrap table package
 
   1. in app/views/topics/index.html.erb
        <table class="table">
 
-1.2.5-a fix bug that the style not changes
+ch1.2.5-a fix bug that the style not changes
 
   1. mv app/assets/stylesheets/application.css app/assets/stylesheets/application.css.scss
 

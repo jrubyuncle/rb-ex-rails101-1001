@@ -8,8 +8,78 @@
 1008 95%  40 min (ch10 db:seed)
 1008             (ch11 deployment) 5:50
 
-
 ch1 Hello World!!
+第一章：Hello World!! --快速體驗 Rails
+
+  ch1.2 use bootstrap
+        幫網站穿衣服：使用 Bootstrap 做前端套版
+
+  ch1.3
+        進入正題
+  
+  ch1.4
+        延伸閱讀：CRUD
+
+ch2 create a rails project
+    第二章：創建一個 Rails 專案
+
+ch3 establish blog site manually
+    第三章：手動架構出討論版功能的基礎網站
+
+ch4 create crud manually
+    第四章：手動實作出有 CRUD 功能的討論版
+
+  ch4.5.0
+          不用 Scaffold 實作出有 CRUD 功能的 group
+  
+  ch4.14.0
+           延伸閱讀：MVC 架構與 RESTful 概念
+
+ch5 create post in group
+    第五章：可以在討論版裡發表文章
+
+  ch5.3 in group#show, display all posts
+        可以在 Group 裡面 post 文章 ( controllers & views 設定 )
+  
+  ch5.4 post_crud: pre-set
+        post 的 CRUD 設定
+
+ch6 authentication
+    第六章：建立使用者功能
+
+  ch6.5 add new field: name
+        客製化 devise => 新增一個 "name" 的欄位
+  
+  ch6.10.0
+           使用者功能 整合進 group / post 裡面 (作者機制)
+  
+  ch.6.12.0
+            只有作者才能有 group / post 的修改/刪除權限
+
+ch7 user can join and quit groups
+    第七章：user 可以加入、退出 group
+
+ch8 backend
+    第八章：實做簡單的後台機制
+
+ch9 refactor
+    第九章：Refactor Code 整理你的程式碼
+
+  ch9.2.0
+          翻修 View
+  
+  ch9.5.0
+          翻修 Model
+
+ch10 db:seed
+     第十章：撰寫 db:seed 與 自動化重整資料庫程式
+
+ch11 deploy to server
+     第十一章：將寫好的專案部署 ( Deploy ) 到遠端 Server 上
+
+// --------------------------------------------------
+ch1 Hello World!!
+第一章：Hello World!! --快速體驗 Rails
 
 ch1.1.1 create a new project
 
@@ -50,6 +120,7 @@ ch1.1.6 set root route: http://localhost:3000/topics
      root 'topics#index'
 
 ch1.2 use bootstrap
+幫網站穿衣服：使用 Bootstrap 做前端套版
 
 ch1.2.1 install gem 'bootstrap-sass'
 
@@ -94,17 +165,24 @@ ch1.2.5-a fix bug that the style not changes
 
   1. mv app/assets/stylesheets/application.css app/assets/stylesheets/application.css.scss
 
+ch1.3
+進入正題
+
 -- why should not use scaffold?
 
 -- how to use this course for learning rails:
 
 -- how to find help:
 
+ch1.4
+延伸閱讀：CRUD
+
 ** crud
 
 ** crud in rails
 
 ch2 create a rails project
+第二章：創建一個 Rails 專案
 
 ch2.1 goal
 
@@ -125,6 +203,7 @@ ch2.1 create new project
        rails _4.2.0_ rails101s -T
 
 ch3 establish blog site manually
+第三章：手動架構出討論版功能的基礎網站
 
 ch3.1
 
@@ -263,6 +342,7 @@ ch3.6 notice_message
        end
 
 ch4 create crud manually
+第四章：手動實作出有 CRUD 功能的討論版
 
 ch4.1 goal
 
@@ -308,6 +388,9 @@ ch4.4 pre-set views:
        show.html.erb
        new.html.erb
        edit.html.erb
+
+ch4.5.0
+不用 Scaffold 實作出有 CRUD 功能的 group
 
 ch4.5 set index action, groups#index
 
@@ -513,7 +596,20 @@ ch4.13 validates
 -- deep on crud
 -- strong parameter
 
+ch4.14.0
+延伸閱讀：MVC 架構與 RESTful 概念
+
+ch4.14.1 http request and http verb
+ch4.14.2 mvc
+ch4.14.3 rails flow
+ch4.14.4 security
+ch4.14.5 restful
+ch4.14.6 crud, controller and model
+ch4.14.7 strong parameter
+
+
 ch5 create post in group
+第五章：可以在討論版裡發表文章
 
 ch5.1 goal
 
@@ -580,6 +676,7 @@ ch5.2-e
        end
 
 ch5.3 in group#show, display all posts
+可以在 Group 裡面 post 文章 ( controllers & views 設定 )
 
   1. in groups_controller.rb
        def show
@@ -614,6 +711,7 @@ ch5.3 in group#show, display all posts
        </table>
 
 ch5.4 post_crud: pre-set
+post 的 CRUD 設定
 
   1. in posts_controller.rb, add
        def new
@@ -735,7 +833,9 @@ ch5.9 post_crud: use befroe_action
        def find_group
          @group = Group.find(params[:group_id])
        end
+
 ch6 authentication
+第六章：建立使用者功能
 
 ch6.1 goal
 
@@ -832,6 +932,7 @@ ch6.4 before_action: authenticate_user!
        before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
 ch6.5 add new field: name
+客製化 devise => 新增一個 "name" 的欄位
 
   1. rails g migration add_name_to_users name:string
 
@@ -866,6 +967,9 @@ ch6.9 add 'account setting' and modify the setting of self
 
   1. add "account setting", edit_user_registration_path
 
+ch6.10.0
+使用者功能 整合進 group / post 裡面 (作者機制)
+
 ch6.10 add user_id in groups table
 
   1. rails g migration add_user_id_to_groups user_id:integer
@@ -875,6 +979,9 @@ ch6.11 set assocation
 
   1. group belongs_to :user
   2. user  has_many :groups
+
+ch.6.12.0
+只有作者才能有 group / post 的修改/刪除權限
 
 ch6.12 only author cam edit/destroy group/post
 
@@ -895,6 +1002,7 @@ ch6.14-b
   1. display edit/delete buttons only for post author
 
 ch7 user can join and quit groups
+第七章：user 可以加入、退出 group
 
 ch7.1 goal
 
@@ -931,6 +1039,7 @@ ch7.5 add group creator to group member by default
 ch7.6 in view of groups#show, display edit/delete button only if author
 
 ch8 backend
+第八章：實做簡單的後台機制
 
 ch8.1 chapter goal
 
@@ -1011,6 +1120,7 @@ ch8.6 add posts_count in group model
 ch8.7 fix bug: in group model, has_many :posts, dependant: :destroy
 
 ch9 refactor
+第九章：Refactor Code 整理你的程式碼
 
 ch9.1 chapter goal
 
@@ -1021,6 +1131,9 @@ ch9.1 chapter goal
        自己撰寫的 helper 包裝 html
        使用 partial 整理 html
        使用 scope 整理 query
+
+ch9.2.0
+翻修 View
 
 ch9.2 use helper
 
@@ -1039,11 +1152,15 @@ ch9.3 write helper to create html
 
 ch9.4 use partial: extract common code to partial
 
+ch9.5.0
+翻修 Model
+
 ch9.5 refactor model: use scope
 
   1. in post.rb, scope :recent, -> { order("updated_at DESC") }
 
 ch10 db:seed
+第十章：撰寫 db:seed 與 自動化重整資料庫程式
 
 ch10.1 chapter goal
 
@@ -1078,6 +1195,7 @@ ch10.4 create lib/tasks/dev.rake
        end
 
 ch11 deploy to server
+第十一章：將寫好的專案部署 ( Deploy ) 到遠端 Server 上
 
 ch11.1 chapter goal
 

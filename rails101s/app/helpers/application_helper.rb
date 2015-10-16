@@ -5,6 +5,7 @@ module ApplicationHelper
     close_button_option = {class: "close", "data-dismiss" => "alert", "aria-hidden" => true}
     close_button = content_tag(:button, "x", close_button_option)
 
+    # iterate flash
     alerts = flash.map do |type, message|
       alert_content = close_button + message
 

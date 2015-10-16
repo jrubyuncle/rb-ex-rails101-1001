@@ -1,8 +1,8 @@
 
 1002 30%
 1005 51%  2.5 hrs
-1006 70%  5.0 hrs (posts crud, devise)
-1007 78%  3.5 hrs (join group, quit group)
+1006 70%  5.0 hrs (ch5 ch6 posts crud, devise)
+1007 78%  3.5 hrs (ch7 join group, quit group)
 1008 85%  2.0 hrs (ch8 backend)
 1008 91%  1.0 hrs (ch9 refactor)
 1008 95%  40 mins (ch10 db:seed)
@@ -11,15 +11,28 @@
 // -----------------------------------------------------------------
 
 ch1 [] scaffold + bootstrap
-  ch1.1 [scaffold]            30 mins
-  ch1.2 [bootstrap]           30 mins
+  ch1.1 [scaffold]                               30 mins
+  ch1.2 [bootstrap]                              30 mins
   ch1.3 [進入正題]
   ch1.4 [延伸閱讀：CRUD]
-ch2 [] 
-ch3 []
+ch2 [create rails101s]                           20 mins 
+ch3 [bootstrap, partial, notice_message]  1 hr
 ch4 []
+  ch4.1 [preset]                                 30 mins
+  ch4.2 [crud w/o scaffold]                      30 mins (copy views code)
+  ch4.3 [reading]                                 5 mins
+
 ch5 []
-ch6 []
+  ch5.1 [preset]  
+  ch5.2 []  
+  ch5.3 [post crud]  
+
+ch6 [devise]
+  ch6.1 [] 
+  ch6.2 [] 
+  ch6.3 [] 
+  ch6.4 []
+
 ch7 []
 ch8 []
 ch9 []
@@ -52,14 +65,18 @@ ch3 establish blog site manually
 ch4 create crud manually
     第四章：手動實作出有 CRUD 功能的討論版
 
-  ch4.5.0
-          不用 Scaffold 實作出有 CRUD 功能的 group
+  ch4.1 preset
+
+  ch4.2
+        不用 Scaffold 實作出有 CRUD 功能的 group
   
-  ch4.14.0
-           延伸閱讀：MVC 架構與 RESTful 概念
+  ch4.3
+        延伸閱讀：MVC 架構與 RESTful 概念
 
 ch5 create post in group
     第五章：可以在討論版裡發表文章
+
+  ch5.1 gaol + preset
 
   ch5.3 in group#show, display all posts
         可以在 Group 裡面 post 文章 ( controllers & views 設定 )
@@ -70,14 +87,16 @@ ch5 create post in group
 ch6 authentication
     第六章：建立使用者功能
 
-  ch6.5 add new field: name
+  ch6.1
+
+  ch6.2 add new field: name
         客製化 devise => 新增一個 "name" 的欄位
   
-  ch6.10.0
-           使用者功能 整合進 group / post 裡面 (作者機制)
+  ch6.3 
+        使用者功能 整合進 group / post 裡面 (作者機制)
   
-  ch.6.12.0
-            只有作者才能有 group / post 的修改/刪除權限
+  ch6.4
+        只有作者才能有 group / post 的修改/刪除權限
 
 ch7 user can join and quit groups
     第七章：user 可以加入、退出 group
@@ -234,7 +253,7 @@ ch2.1 goal
   2. gem i brakeman
      gem i rails_bets_practices
 
-ch2.1 create new project
+ch2.2 create new project
 
   1. make sure that ruby version is 2.1.2
        ruby -v
@@ -248,7 +267,8 @@ ch2.1 create new project
 ch3 establish blog site manually
 第三章：手動架構出討論版功能的基礎網站
 
-ch3.1
+ch3.1 goal
+      作業目標
 
   1. 本章的作業目標：
 
@@ -260,6 +280,7 @@ ch3.1
      建立 notice_message
 
 ch3.2 create group
+      建立一個討論版(group)
 
 ch3.2-a
   1. rails g controller groups
@@ -271,6 +292,7 @@ ch3.2-c
   1. rake db:migrate
 
 ch3.3 set routes; set home page
+      設定 routes 並建立首頁 => hello world!
 
   1. in routes.rb, add
        root 'groups#index'
@@ -284,6 +306,7 @@ ch3.3 set routes; set home page
        <h1>Hello World</h1>
 
 ch3.4 use bootstrap
+      套入前端套件 Bootstrap
 
   1. in Gemfile, add
        gem 'bootstrap-sass'                    // sAss
@@ -299,6 +322,7 @@ ch3.4 use bootstrap
        @import "bootstrap";
 
 ch3.5 create navbar and footbar
+      建立頁面的 navbar 與 footer
 
   1. create new folder 'common' under app/views/
 
@@ -348,6 +372,7 @@ ch3.5 create navbar and footbar
        <%= render "common/footer" %>     <--- add
 
 ch3.6 notice_message
+      建立 notice_message
 
   1. in app/helpers/application_helper/rb, add
 
@@ -387,15 +412,17 @@ ch3.6 notice_message
 ch4 create crud manually
 第四章：手動實作出有 CRUD 功能的討論版
 
-ch4.1 goal
+ch4.1 preset
 
+ch4.1.1
   1. goal
        安裝 gem "simple_form"
        不用 Scaffold 實作出有 CRUD 功能的 group
        連前端網頁部分也做完
        資料驗證 => title 欄位不能空白
 
-ch4.2 install gem 'simple_form'
+ch4.1.2 install gem 'simple_form'
+        安裝 gem "simple_form"
 
   1. in Gemfile, add
        gem 'simple_form'
@@ -404,7 +431,8 @@ ch4.2 install gem 'simple_form'
 
   3. rails g simple_form:install --bootstrap
 
-ch4.3 pre-set: controller, add actions in groups controller
+ch4.1.3 pre-set: controller, add actions in groups controller
+      ​  前置設定: controller
 
   1. in groups_controller.rb, add
        def show
@@ -425,17 +453,19 @@ ch4.3 pre-set: controller, add actions in groups controller
        def destroy
        end
 
-ch4.4 pre-set views: 
+ch4.1.4 pre-set views:
+        前置設定: Views
 
   1. in app/views/groups, create files:
        show.html.erb
        new.html.erb
        edit.html.erb
 
-ch4.5.0
-不用 Scaffold 實作出有 CRUD 功能的 group
+ch4.2 
+      不用 Scaffold 實作出有 CRUD 功能的 group
 
-ch4.5 set index action, groups#index
+ch4.2.1 set index action, groups#index
+      建立 Index action
 
   1. in index method of groups_controller.rb
        @groups = Group.all
@@ -472,7 +502,9 @@ ch4.5 set index action, groups#index
            </table>
          </div>
 
-ch4.6 create new action, groups#new
+ch4.2.2 create new action, groups#new
+        建立 New action
+
 
   1. in new method of groups_controller.rb, add
        dev new
@@ -493,7 +525,8 @@ ch4.6 create new action, groups#new
          <% end %>
        </div>
 
-ch4.7 create 'create' action
+ch4.2.3 create 'create' action
+        建立 Create action
 
   1. in create method of groups_controller.rb, add
        def create
@@ -511,7 +544,8 @@ ch4.7 create 'create' action
          params.require(:group).permit(:title, :description)
        end
 
-ch4.8 create 'show' action
+ch4.2.4 create 'show' action
+        建立 Show action
 
   1. in show method of groups_controller.rb
        def show
@@ -528,7 +562,8 @@ ch4.8 create 'show' action
          <p><%= @group.description %></p>
        </div>
 
-ch4.9 create 'edit action'
+ch4.2.5 create 'edit action'
+        建立 Edit Action
 
   1. in edit method of groups_controller.rb
        def edit
@@ -549,7 +584,8 @@ ch4.9 create 'edit action'
          <% end %>
        </div>
 
-ch4.10 create 'update' action
+ch4.2.6 create 'update' action
+        建立 Update action
 
   1. in update method of groups_controller.rb
        def update
@@ -561,7 +597,8 @@ ch4.10 create 'update' action
          end
        end
 
-ch4.11 create 'destroy' action
+ch4.2.7 create 'destroy' action
+        建立 Destroy action
 
   1. in destroy method of groups_controller.rb
        def destroy
@@ -570,7 +607,8 @@ ch4.11 create 'destroy' action
          redirect_to groups_path, alert: 'this group is deleted'  # <--- use alert: 'msg'
        end
 
-ch4.12 outcome
+ch4.2.8 outcome
+        成果
 
   1. complete groups_controller.rb
 
@@ -624,7 +662,8 @@ class GroupsController < ApplicationController
   end
 end
 
-ch4.13 validates
+ch4.2.9 validates
+        資料驗證: title 不能空白
 
   1. title can not be blank
        validates :title, presence: true
@@ -639,24 +678,26 @@ ch4.13 validates
 -- deep on crud
 -- strong parameter
 
-ch4.14.0
-延伸閱讀：MVC 架構與 RESTful 概念
+ch4.3
+      延伸閱讀：MVC 架構與 RESTful 概念
 
-ch4.14.1 http request and http verb
-ch4.14.2 mvc
-ch4.14.3 rails flow
-ch4.14.4 security
-ch4.14.5 restful
-ch4.14.6 crud, controller and model
-ch4.14.7 strong parameter
+ch4.3.1 http request and http verb
+ch4.3.2 mvc
+ch4.3.3 rails flow
+ch4.3.4 security
+ch4.3.5 restful
+ch4.3.6 crud, controller and model
+ch4.3.7 strong parameter
 
 
 ch5 create post in group
 第五章：可以在討論版裡發表文章
 
-ch5.1 goal
+ch5.1 goal + preset
 
-  1. chapter goal
+ch5.1.1 chapter goal
+        作業目標
+  1.
        本章的作業目標：
 
        - 可以在 Group 裡面 post 文章
@@ -664,18 +705,19 @@ ch5.1 goal
        - 資料驗證： post 必須要有內容才能儲存 / 新增
        - 用 before_action 來整理重複的程式碼
 
-ch5 pre-set
+ch5.1.2 pre-set
+        前置作業 ( model, routes )
 
-ch5.2-a
+ch5.1.2-a
   1. rails g controller posts
 
-ch5.2-b
+ch5.1.2-b
   1. rails g model post content:text group_id:integer
 
-ch5.2-c
+ch5.1.2-c
   1. rake db:migrate
 
-ch5.2-d
+ch5.1.2-d
   1. in config/routes.rb
        resources 'groups' do
          resources 'posts'
@@ -704,7 +746,7 @@ edit_group_post GET    /groups/:group_id/posts/:id/edit(.:format) posts#edit
                 PUT    /groups/:id(.:format)                      groups#update
                 DELETE /groups/:id(.:format)                      groups#destroy
 
-ch5.2-e
+ch5.1.2-e
   1. set relationship
 
        class Group < ActiveRecord::Base
@@ -718,8 +760,8 @@ ch5.2-e
          belongs_to :group
        end
 
-ch5.3 in group#show, display all posts
-可以在 Group 裡面 post 文章 ( controllers & views 設定 )
+ch5.2 in group#show, display all posts
+      可以在 Group 裡面 post 文章 ( controllers & views 設定 )
 
   1. in groups_controller.rb
        def show
@@ -753,8 +795,13 @@ ch5.3 in group#show, display all posts
          </tbody>
        </table>
 
-ch5.4 post_crud: pre-set
-post 的 CRUD 設定
+ch5.3 crud of post
+      post 的 CRUD 設定
+
+
+ch5.3.1 post_crud: pre-set
+        前置
+        post 的 CRUD 設定
 
   1. in posts_controller.rb, add
        def new
@@ -776,20 +823,24 @@ post 的 CRUD 設定
        new.html.erb
        edit.html.erb
 
-ch5.5 post_crud: create 'create' action
+ch5.3.2 'new' action
+        建立 New action
 
-ch5.5-a
+ch5.3.3 post_crud: create 'create' action
+        建立 Create action
+
+ch5.3.3-a
   1. in show.html.erb of groups controller, add
        <%= link_to('new post', new_group_post_path(@group) , class: "btn btn-warning pull-right") %>
 
-ch5.5-b
+ch5.3.3-b
   1. in posts_controller.rb, add
        def new
          @group = Group.find(params[:group_id])
          @post = @group.posts.new
        end
 
-ch5.5-c
+ch5.3.3-c
   1. in posts_controller.rb, add
 
        def create
@@ -809,9 +860,10 @@ ch5.5-c
          params.require(:post).permit(:content)
        end
 
-ch5.6 post_crud: create 'edit'/'update' action
+ch5.3.4 post_crud: create 'edit'/'update' action
+        建立 Edit & Update action
 
-ch5.6-a
+ch5.3.4-a
   1. in posts_controller.rb, add
        def edit
          @group = Group.find(params[:group_id])
@@ -832,7 +884,7 @@ ch5.6-a
          <% end %>
        </div>
 
-ch5.6-b
+ch5.3.4-b
   1. in posts_controller.rb, add
 
   def update
@@ -846,7 +898,8 @@ ch5.6-b
     end
   end
 
-ch5.7 post_crud: create 'destroy' action 
+ch5.3.5 post_crud: create 'destroy' action 
+        建立 Destroy action
 
   1. in posts_controller.rb
 
@@ -858,7 +911,8 @@ ch5.7 post_crud: create 'destroy' action
          redirect_to group_path(@group), alert: 'post destroyed'
        end
 
-ch5.8 post_crud: validates, store/creat post only if nonempty
+ch5.3.6 post_crud: validates, store/creat post only if nonempty
+        料驗證： post 必須要有內容才能儲存 / 新增
 
   1. content can not be empty
 
@@ -867,7 +921,8 @@ ch5.8 post_crud: validates, store/creat post only if nonempty
         validates :content, presence: true
       end
 
-ch5.9 post_crud: use befroe_action
+ch5.3.7 post_crud: use befroe_action
+        用 before_action 來整理重複的程式碼
 
   1. in posts_controller.rb
 
@@ -878,9 +933,12 @@ ch5.9 post_crud: use befroe_action
        end
 
 ch6 authentication
-第六章：建立使用者功能
+    第六章：建立使用者功能
 
-ch6.1 goal
+ch6.1 gaol + install devise
+
+ch6.1.1 goal
+        作業目標
 
   1. chapter goal
        本章的作業目標:
@@ -893,7 +951,8 @@ ch6.1 goal
        使用者功能 整合進 group / post 裡面 (作者機制)
        只有作者才能有 group / post 的修改/刪除權限
 
-ch6.2 install gem 'devise'
+ch6.1.2 install gem 'devise'
+        安裝 gem "devise"
 
 ch6.2-a
   1. add gem 'devise'
@@ -950,7 +1009,9 @@ ch6.2-d
 ch6.2-e
   1. rails g devise:views
 
-ch6.3 add login/logout button in navbat
+ch6.1.3 add login/logout button in navbat
+        在 navbar 安裝登入/登出按鈕
+
 
   1. add login/register buttons in _navbar.html.erb
 
@@ -969,26 +1030,31 @@ ch6.3 add login/logout button in navbat
           </li>
         <% end %>
 
-ch6.4 before_action: authenticate_user!
+ch6.1.4 before_action: authenticate_user!
+        利用 before_action :authenticate_user! 來做要求登入的設定
 
   1. in groups and posts controller, add
        before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
-ch6.5 add new field: name
-客製化 devise => 新增一個 "name" 的欄位
+ch6.2 客製化 devise => 新增一個 "name" 的欄位
+
+ch6.2.1 add new field: name
+        客製化欄位：name
 
   1. rails g migration add_name_to_users name:string
 
   2. rake db:migrage
 
-ch6.6 display name in devise view
+ch6.2.2 display name in devise view
+        客製化 devise 的 views => 註冊頁面新增 name 欄位
 
   1. in app/views/devise/registrations/new.html.erb
 
        <%= f.input :email, required: true, autofocus: true %>
        <%= f.input :name,  required: true %>                    # <--- add
 
-ch6.7 add strong parameters
+ch6.2.3 add strong parameters
+        加入 strong_parameters 與 devise 整合的 hack
 
   1. in application_controller.rb
 
@@ -1001,47 +1067,54 @@ ch6.7 add strong parameters
          end
        end
 
-ch6.8 in navbar, hi! email -> hi! name
+ch6.2.4 in navbar, hi! email -> hi! name
+        navbar 上的 hi! email 改成 hi! name
 
   1.    Hi, <%= current_user.email %>
      -> Hi, <%= current_user.name %>
 
-ch6.9 add 'account setting' and modify the setting of self
+ch6.2.5 add 'account setting' and modify the setting of self
+        新增 "帳號設定" 功能，並能修改自己帳號的 name
 
   1. add "account setting", edit_user_registration_path
 
-ch6.10.0
-使用者功能 整合進 group / post 裡面 (作者機制)
+ch6.3 使用者功能 整合進 group / post 裡面 (作者機制)
 
-ch6.10 add user_id in groups table
+ch6.3.1 add user_id in groups table
+        group 資料表新增 user_id 欄位
 
   1. rails g migration add_user_id_to_groups user_id:integer
   2. rake db:migrate
 
-ch6.11 set assocation
+ch6.3.2 set assocation
+        設定 user 跟 group 之間的資料庫關聯 ( database relationship )
 
   1. group belongs_to :user
   2. user  has_many :groups
 
-ch.6.12.0
-只有作者才能有 group / post 的修改/刪除權限
 
-ch6.12 only author cam edit/destroy group/post
+ch6.4 只有作者才能有 group / post 的修改/刪除權限
+
+
+ch6.4.1 only author cam edit/destroy group/post
+        只有作者才能有 group / post 的修改/刪除權限
 
   1. replace Group with current_user.groups
 
-ch6.13 modify view, only author can edit/delete
+ch6.4.2 modify view, only author can edit/delete
+        修改 view => 只有作者才會出現 edit / delete 按鈕
 
   1. show edit/delete buttons only if author
 
-ch6.14 only author can edit/delete post
+ch6.4.3 only author can edit/delete post
+       只有作者才能有 post 的修改/刪除權限
 
-ch6.14-a
+ch6.4.3-a
   1. add user_id column to table posts
        rails g migration add_user_id_to_post user_id:integer
        rake db:migrate
 
-ch6.14-b
+ch6.4.3-b
   1. display edit/delete buttons only for post author
 
 ch7 user can join and quit groups

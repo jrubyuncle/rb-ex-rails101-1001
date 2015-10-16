@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'topics#index'
   get 'welcome', to: 'topics#welcome'
   resources :topics
   # The priority is based upon order of creation: first created -> highest priority.

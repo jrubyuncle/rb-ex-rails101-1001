@@ -1,6 +1,9 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
+  def welcome
+  end
+
   # GET /topics
   # GET /topics.json
   def index

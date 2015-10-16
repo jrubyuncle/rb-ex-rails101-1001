@@ -8,8 +8,27 @@
 1008 95%  40 min (ch10 db:seed)
 1008             (ch11 deployment) 5:50
 
+// -----------------------------------------------------------------
+
+ch01 [] scaffold + bootstrap
+ch02 [] 
+ch03 []
+ch04 []
+ch05 []
+ch06 []
+ch07 []
+ch08 []
+ch09 []
+ch10 []
+ch11 []
+
+
+// -----------------------------------------------------------------
+
 ch1 Hello World!!
 第一章：Hello World!! --快速體驗 Rails
+
+  ch1.1 快速體驗 Rails
 
   ch1.2 use bootstrap
         幫網站穿衣服：使用 Bootstrap 做前端套版
@@ -77,11 +96,13 @@ ch10 db:seed
 ch11 deploy to server
      第十一章：將寫好的專案部署 ( Deploy ) 到遠端 Server 上
 
-// --------------------------------------------------
+// -----------------------------------------------------------------
 ch1 Hello World!!
 第一章：Hello World!! --快速體驗 Rails
 
-ch1.1.1 create a new project
+ch1.1 快速體驗 Rails
+
+ch1.1.1 create a whole new project
 
   1. rails new first-app
      cd first-app

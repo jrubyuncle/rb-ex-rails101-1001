@@ -1,24 +1,28 @@
 
 1002 30%
-1005 51%  2.5 hr
-1006 70%  5.0 hr (posts crud, devise)
-1007 78%  3.5 hr (join group, quit group)
-1008 85%  2.0 hr (ch8 backend)
-1008 91%  1.0 hr (ch9 refactor)
-1008 95%  40 min (ch10 db:seed)
-1008             (ch11 deployment) 5:50
+1005 51%  2.5 hrs
+1006 70%  5.0 hrs (posts crud, devise)
+1007 78%  3.5 hrs (join group, quit group)
+1008 85%  2.0 hrs (ch8 backend)
+1008 91%  1.0 hrs (ch9 refactor)
+1008 95%  40 mins (ch10 db:seed)
+1008              (ch11 deployment) 5:50
 
 // -----------------------------------------------------------------
 
-ch01 [] scaffold + bootstrap
-ch02 [] 
-ch03 []
-ch04 []
-ch05 []
-ch06 []
-ch07 []
-ch08 []
-ch09 []
+ch1 [] scaffold + bootstrap
+  ch1.1 [scaffold]            30 mins
+  ch1.2 [bootstrap]           30 mins
+  ch1.3 [進入正題]
+  ch1.4 [延伸閱讀：CRUD]
+ch2 [] 
+ch3 []
+ch4 []
+ch5 []
+ch6 []
+ch7 []
+ch8 []
+ch9 []
 ch10 []
 ch11 []
 
@@ -103,6 +107,7 @@ ch1 Hello World!!
 ch1.1 快速體驗 Rails
 
 ch1.1.1 create a whole new project
+        建立一個全新的專案
 
   1. rails new first-app
      cd first-app
@@ -111,6 +116,7 @@ ch1.1.1 create a whole new project
      git commit -m"commit initial"
 
 ch1.1.2 use scaffold
+        使用鷹架( Scaffold )功能
 
   1. rails g scaffold topic title:string description:text
                       -----
@@ -121,21 +127,25 @@ ch1.1.2 use scaffold
   3. rails s
   4. connect to http://localhost:3000/topics with browser
 
-ch1.1.3 create welcome page
+ch1.1.3 (wrong: create welcome page,) create topics#welcome action
+        (wrong: 建立 welcome 頁面)
 
   1. add 'welcome' action in topics_controller.rb
 
-ch1.1.4 setup routes
+ch1.1.4 setup routes, direct /welcome to 'topics#welcome'
+        設定 routes
 
   1. in routes.rb, add
        get 'welcome', to: 'topics#welcome'
 
 ch1.1.5 create welcome.html.erb
+        建立 welcome.html.erb
 
   1. create app/views/topics/welcome.html.erb
   2. content: <h1>Hello World! (welcome.html)</h1>
 
 ch1.1.6 set root route: http://localhost:3000/topics
+        設定首頁為 http://localhost:3000/topics
 
   1. in routes.rb, add
      root 'topics#index'
@@ -144,12 +154,16 @@ ch1.2 use bootstrap
 幫網站穿衣服：使用 Bootstrap 做前端套版
 
 ch1.2.1 install gem 'bootstrap-sass'
+        安裝 gem 'bootstrap-sass'
 
   1. in Gemfile, add
        gem 'bootstrap-sass'
   2. run 'bundle'
 
 ch1.2.2 install css packages in rails project
+        將 Bootstrap 的 CSS 套件裝進專案裡面
+
+  0. note: 1. rename and @import
 
   1. cd app/assets/stylesheets
      mv application.css  application.css.scss
@@ -161,23 +175,31 @@ ch1.2.2 install css packages in rails project
   3. re-run 'rails s'
 
 ch1.2.3 install navbar and footbar
+        幫你的專案裝上 Navbar 跟 Footbar
 
   1. mkdir app/views/common
 
   2. create app/views/common/_navbar.html.erb
             app/views/common/_footer.html.erb
 
-  3. in application,js, add
+  3. in application.js, add
        //= require bootstrap/dropdown
        //= require bootstrap/alert
 
 ch1.2.4 modify app/views/layouts/application.html.erb
+        修改你的 app/views/layout/application.html.erb
 
   1. in application.html.erb, add
        <%= render "common/navbar" %>
+
+       <%= yield %>
+
        <%= render "common/footer" %>
 
 ch1.2.5 use bootstrap table package
+        代入 bootstrap 的 table 套件
+
+  0. note: just add class="xxx"
 
   1. in app/views/topics/index.html.erb
        <table class="table">

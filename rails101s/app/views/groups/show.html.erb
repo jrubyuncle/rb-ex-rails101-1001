@@ -4,4 +4,44 @@
   </div>
   <h2><%= @group.title %></h2>
   <p><%= @group.description %></p>
+
+  <!-- ***************   simple version  ********************-->
+  <hr>Simple Version
+  <ul>
+  <% @posts.each do |post| %>
+    <li><%= post.content%>
+        <%= link_to 'edit', edit_group_post_path(@group, post) %>
+        <%= link_to 'delete', group_post_path(@group, post) %>
+    </li>
+  <% end %>
+  </ul>
+
+  <!-- ***************   rails101s version  ********************-->
+  <hr>Rails101s Version<h1>TODO</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Post</th>
+        <th colspan="2">operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.content %></td>
+          <td>
+            <%= link_to 'Edit', edit_group_post_path(@group, post),
+                        class: "btn btn-default btn-xs" %>
+            <%= link_to 'Delete', group_post_path(@group, post), method: :delete, class: "btn btn-default btn-xs", data: {confirm: "Are you sure?"} %>
+          </td>
+        </tr>
+      <% end %>
+
+    </tbody>
+    
+
+
+
+  </table>
 </div>

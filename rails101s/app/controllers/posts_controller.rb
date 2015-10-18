@@ -3,11 +3,12 @@ class PostsController < ApplicationController
   before_action :find_group
 
   def new
-    @post = @group.posts.new
+    @post = current_user.posts.new
   end
 
   def create
     @post = @group.posts.new post_params
+    @post.author = current_user
 
     if @post.save
       redirect_to group_path(@group), notice: "New Post OK"
@@ -17,12 +18,14 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = @group.posts.find params[:id]
+    #@post = @group.posts.find params[:id]
+    @post = current_user.posts.find params[:id]
     #@post = Post.find params[:id]
   end
 
   def update
-    @post = @group.posts.find params[:id]
+    #@post = @group.posts.find params[:id]
+    @post = current_user.posts.find params[:id]
 
     if @post.update post_params
       redirect_to group_path(@group), notice: "Update Post OK"
@@ -32,7 +35,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = @group.posts.find params[:id]
+    @post = current_user.posts.find params[:id]
     @post.destroy
     redirect_to group_path(@group), alert: "Post Deleted OK"
   end

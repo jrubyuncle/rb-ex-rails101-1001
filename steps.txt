@@ -1,3 +1,6 @@
+group - owner
+post  - author
+
 
 1002 30%
 1005 51%  2.5 hrs
@@ -27,8 +30,8 @@ ch5 [create posts in group]
   ch5.2 []                                       35 mins
   ch5.3 [post crud]                       1 hr
 
-ch6 [devise]
-  ch6.1 [] 
+ch6 [devise]                              3 hr
+  ch6.1 []
   ch6.2 [] 
   ch6.3 [] 
   ch6.4 []

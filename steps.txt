@@ -22,10 +22,10 @@ ch4 []
   ch4.2 [crud w/o scaffold]                      30 mins (copy views code)
   ch4.3 [reading]                                 5 mins
 
-ch5 []
-  ch5.1 [preset]  
-  ch5.2 []  
-  ch5.3 [post crud]  
+ch5 [create posts in group]
+  ch5.1 [goal + preset]                          20 mins
+  ch5.2 []                                       35 mins
+  ch5.3 [post crud]                       1 hr
 
 ch6 [devise]
   ch6.1 [] 
@@ -73,10 +73,10 @@ ch4 create crud manually
   ch4.3
         延伸閱讀：MVC 架構與 RESTful 概念
 
-ch5 create post in group
+ch5 create posts in group
     第五章：可以在討論版裡發表文章
 
-  ch5.1 gaol + preset
+  ch5.1 goal + preset
 
   ch5.3 in group#show, display all posts
         可以在 Group 裡面 post 文章 ( controllers & views 設定 )

@@ -4,12 +4,31 @@ post  - author
 
 1002 30%
 1005 51%  2.5 hrs
-1006 70%  5.0 hrs (ch5 ch6 posts crud, devise)
+          2.0 hrs (ch5 posts crud)
+1006 70%  3.0 hrs (ch6 devise)
 1007 78%  3.5 hrs (ch7 join group, quit group)
 1008 85%  2.0 hrs (ch8 backend)
 1008 91%  1.0 hrs (ch9 refactor)
 1008 95%  40 mins (ch10 db:seed)
 1008              (ch11 deployment) 5:50
+
+// -----------------------------------------------------------------
+
+ch1                                         1016,  1   hr
+ch2                                         1016, 20   mins
+ch3                                         1016,  1   hr
+ch4                                         1016,  1   hr
+
+ch5 posts crud       1006,  2   hrs         1018,  2   hrs
+ch6 devise           1006,  3   hrs         1018,  3   hrs
+
+ch7 join/quit group  1007,  3.5 hrs         1019,  3.5 hrs
+ch8 backend          1008,  2   hrs
+
+ch9 refactor         1008,  1   hr
+ch10 db:seed         1008, 40   mins
+
+ch11 deployment
 
 // -----------------------------------------------------------------
 
@@ -36,11 +55,28 @@ ch6 [devise]                              3 hr
   ch6.3 [] 
   ch6.4 []
 
-ch7 []
-ch8 []
-ch9 []
-ch10 []
-ch11 []
+ch7 [join/quit group]
+
+  ch7.1 [
+  ch7.2 [create join table: group_users]  1 hr
+  ch7.3 [only group members can post]     1 hr
+  ch7.4 [join/quit group]                 1 hr
+  ch7.5 [group creator -> members]                10 mins
+  ch7.6 [in groups#show, edit only for creator]   10 mins 
+
+ch8 [backend]
+
+  ch8.1 []
+  ch8.2 []
+  ch8.3 []
+  ch8.4 []
+  ch8.5 []
+  ch8.6 []
+  ch8.7 []
+
+ch9 [refactor]
+ch10 [db:seed]
+ch11 [deploy]
 
 
 // -----------------------------------------------------------------

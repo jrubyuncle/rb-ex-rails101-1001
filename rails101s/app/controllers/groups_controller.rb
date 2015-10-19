@@ -21,7 +21,8 @@ class GroupsController < ApplicationController
     @group = current_user.groups.new(group_params)
 
     if @group.save
-      redirect_to groups_path
+      @group.members << current_user
+      redirect_to groups_path, notice: "create group ok"
     else
       render :new
     end
@@ -70,7 +71,7 @@ class GroupsController < ApplicationController
       #@group.members.delete(current_user)
       #current_user.participated_groups.delete(@group)
       current_user.quit!(@group)
-      
+
       flash[:alert] = "quit ok"
     else
       flash[:warning] = "not member"

@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_group
+  before_action :member_required, only: [:new, :create]
 
   def new
     @post = current_user.posts.new
@@ -49,4 +50,13 @@ class PostsController < ApplicationController
     @group = Group.find params[:group_id]
   end
 
+  def member_required
+    #current_user group.members
+
+    #redirect_to group_path(@group) unless @group.include_member?(current_user)
+    if not current_user.is_member_of?(@group)
+      flash[:warning] = "only members can create post"
+      redirect_to group_path(@group)
+    end
+  end
 end

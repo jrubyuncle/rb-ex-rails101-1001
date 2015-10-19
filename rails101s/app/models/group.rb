@@ -8,8 +8,12 @@ class Group < ActiveRecord::Base
 
   has_many :group_users
   has_many :members, through: :group_users, source: :user
-  
+
   def editable_by_user?(user)
       user == owner
+  end
+
+  def include_member?(user)
+    members.include?(user)
   end
 end

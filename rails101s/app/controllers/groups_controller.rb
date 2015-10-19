@@ -47,6 +47,38 @@ class GroupsController < ApplicationController
     redirect_to groups_path, notice: "destroy group ok"
   end
 
+  def join
+    @group = Group.find params[:id]
+
+    if current_user.is_member_of?(@group)
+      flash[:warning] = "already member"
+    else
+      #@group.members << current_user
+      #current_user.participated_groups << @group
+      current_user.join!(@group)
+
+      flash[:notice] = "join ok"
+    end
+
+    redirect_to group_path(@group)
+  end
+
+  def quit
+    @group = Group.find params[:id]
+
+    if current_user.is_member_of?(@group)
+      #@group.members.delete(current_user)
+      #current_user.participated_groups.delete(@group)
+      current_user.quit!(@group)
+      
+      flash[:alert] = "quit ok"
+    else
+      flash[:warning] = "not member"
+    end
+
+    redirect_to group_path(params[:id])
+  end
+
   private
   def group_params
     params.require(:group).permit(:title, :description)

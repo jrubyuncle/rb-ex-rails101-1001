@@ -1,7 +1,10 @@
 <div class="col-md-12">
   <div class="group">
     <%= link_to 'New Post', new_group_post_path(@group), class: "btn btn-warning pull-right" %>
-    <%= link_to("Edit", edit_group_path(@group), class: "btn btn-primary pull-right")%>
+    
+    <% if  @group.editable_by_user?(current_user) %>
+      <%= link_to("Edit", edit_group_path(@group), class: "btn btn-primary pull-right")%>
+    <% end %>
 
     <% if current_user.is_member_of?(@group) %>
       <%= link_to("Quit Group", quit_group_path(@group), method: :post, class: "btn btn-danger") %>

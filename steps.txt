@@ -23,7 +23,7 @@ ch5 posts crud       1006,  2   hrs         1018,  2   hrs
 ch6 devise           1006,  3   hrs         1018,  3   hrs
 
 ch7 join/quit group  1007,  3.5 hrs         1019,  3.5 hrs
-ch8 backend          1008,  2   hrs
+ch8 backend          1008,  2   hrs         1020,  2.0 hrs + 40 mins
 
 ch9 refactor         1008,  1   hr
 ch10 db:seed         1008, 40   mins
@@ -64,15 +64,15 @@ ch7 [join/quit group]
   ch7.5 [group creator -> members]                10 mins
   ch7.6 [in groups#show, edit only for creator]   10 mins 
 
-ch8 [backend]
+ch8 [backend] 160 mins = 2 hrs 40 mins
 
   ch8.1 []
-  ch8.2 []
-  ch8.3 []
-  ch8.4 []
-  ch8.5 []
-  ch8.6 []
-  ch8.7 []
+  ch8.2 []  25 mins
+  ch8.3 []  50 mins
+  ch8.4 []  40 mins
+  ch8.5 []  10 mins
+  ch8.6 []  30 mins
+  ch8.7 []   5 mins
 
 ch9 [refactor]
 ch10 [db:seed]

@@ -25,7 +25,7 @@ ch6 devise           1006,  3   hrs         1018,  3   hrs
 ch7 join/quit group  1007,  3.5 hrs         1019,  3.5 hrs
 ch8 backend          1008,  2   hrs         1020,  2.0 hrs + 40 mins
 
-ch9 refactor         1008,  1   hr
+ch9 refactor         1008,  1   hr          1028, 12:03
 ch10 db:seed         1008, 40   mins
 
 ch11 deployment
@@ -1280,6 +1280,7 @@ ch9 refactor
 ch9.1 chapter goal
 
   1. chapter goal
+     http://courses.growthschool.com/courses/rails-101/lectures/229668
        本章的作業目標:
 
        使用系統 helper 整理 code
@@ -1287,16 +1288,20 @@ ch9.1 chapter goal
        使用 partial 整理 html
        使用 scope 整理 query
 
-ch9.2.0
+ch9.2
 翻修 View
 
-ch9.2 use helper
+ch9.2.1 use helper
+        使用 '系統 helper' 整理 code
+        http://courses.growthschool.com/courses/rails-101/lectures/229669
 
   1. post.updated_at.to_s(:long)
   2. simple_format(post.content)
   3. truncate(group.title, length: 15)
 
-ch9.3 write helper to create html
+ch9.2.2 write helper to create html
+        自己撰寫的 helper 包裝 html
+        http://courses.growthschool.com/courses/rails-101/lectures/229675
 
   1. create helper in app/helper/posts_helper.rb
        module PostsHelper
@@ -1305,12 +1310,16 @@ ch9.3 write helper to create html
          end
        end
 
-ch9.4 use partial: extract common code to partial
+ch9.2.3 use partial: extract common code to partial
+        使用 partial 整理 html
+        http://courses.growthschool.com/courses/rails-101/lectures/229676
 
-ch9.5.0
+ch9.3
 翻修 Model
 
-ch9.5 refactor model: use scope
+ch9.3.1 refactor model: use scope
+        使用 scope 整理 query
+        http://courses.growthschool.com/courses/rails-101/lectures/229677
 
   1. in post.rb, scope :recent, -> { order("updated_at DESC") }
 
@@ -1318,6 +1327,8 @@ ch10 db:seed
 第十章：撰寫 db:seed 與 自動化重整資料庫程式
 
 ch10.1 chapter goal
+      作業目標
+      http://courses.growthschool.com/courses/rails-101/lectures/229678
 
   1. chapter goal
        本章的作業目標:
@@ -1327,11 +1338,15 @@ ch10.1 chapter goal
        撰寫 rake dev:build => 自動化執行清空 + 重跑 migration + 種子載入資料
 
 ch10.2 rake concept: review rake command
+       rake 的概念解說
+       http://courses.growthschool.com/courses/rails-101/lectures/229679
 
   1. rake -T
   2. rake db:migrate
 
 ch10.3 write seeds.rb, rake db:seed, rake db:reset
+      撰寫 seed.rb 檔
+      http://courses.growthschool.com/courses/rails-101/lectures/229680
 
   1. rake db:reset
        rake db:reset 是內建的 task ，會執行一整套流程, 包含
@@ -1341,6 +1356,8 @@ ch10.3 write seeds.rb, rake db:seed, rake db:reset
        => db:seed        ( 執行資料庫種子 )
 
 ch10.4 create lib/tasks/dev.rake
+       撰寫 rake dev:build => 自動化執行清空 + 重跑 migration + 種子載入資料
+       http://courses.growthschool.com/courses/rails-101/lectures/229693
 
   1. content
        namespace :dev do
@@ -1353,6 +1370,8 @@ ch11 deploy to server
 第十一章：將寫好的專案部署 ( Deploy ) 到遠端 Server 上
 
 ch11.1 chapter goal
+       作業目標
+       http://courses.growthschool.com/courses/rails-101/lectures/229694
 
   1. chapter goal
      本章的作業目標:
@@ -1361,13 +1380,16 @@ ch11.1 chapter goal
      改 Capristrano 自動化部署，一個指令完成 Deploy
 
 ch11.2 deploy manually
+       用手動的方式將寫好的 Rails 專案 deploy 到遠端 Server 上
+       http://courses.growthschool.com/courses/rails-101/lectures/229695
 
 ch11.3 production setup
+       Production 端設定
+       http://courses.growthschool.com/courses/rails-101/lectures/229696
 
 ch11.4 capristrano
+       改 Capristrano 自動化部署，一個指令完成 Deploy
+       http://courses.growthschool.com/courses/rails-101/lectures/229697
 
 ch11.5 note
-
-
-
-
+       http://courses.growthschool.com/courses/rails-101/lectures/229917

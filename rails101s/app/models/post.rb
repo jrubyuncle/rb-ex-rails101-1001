@@ -4,6 +4,8 @@ class Post < ActiveRecord::Base
 
   validates :content, presence: true
 
+  scope :recent, -> { order("updated_at DESC") }
+
   def show_for_user?(user)
     user && user == author
   end
